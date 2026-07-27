@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sweta!</title>
+    <!-- Use Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4081; /* Special pink for Sweta */
+            --secondary: #fce4ec;
+            --accent: #f8bbd0;
+            --text-dark: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffebee, #f3e5f5);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Balloon & Confetti Background */
+        .balloon-container, .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background: rgba(255, 64, 129, 0.6);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: floatBalloon 15s infinite ease-out;
+        }
+
+        .balloon::before {
+            content: '';
+            width: 2px;
+            height: 100px;
+            background: rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: -100px;
+            left: 24px;
+        }
+
+        @keyframes floatBalloon {
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Main Greeting Card */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid var(--accent);
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Photo Gallery Slider */
+        .gallery-container {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary);
+            box-shadow: 0 8px 15px rgba(255, 64, 129, 0.3);
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slideGallery 15s infinite ease-in-out;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slideGallery {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            63% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            96% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Birthday Text */
+        .special-text {
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary);
+            font-size: 48px;
+            margin: 0 0 5px;
+            line-height: 1.1;
+        }
+
+        h1 {
+            color: var(--text-dark);
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Quotes */
+        .quotes-container {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .quote {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .quote.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Call to Action */
+        .cta-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(255, 64, 129, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Balloon Background -->
+    <div class="balloon-container" id="balloons"></div>
+
+    <!-- Main Card -->
+    <div class="card">
+        <!-- Photo Gallery -->
+        <div class="gallery-container">
+            <div class="slider">
+                <!-- Replace with path to actual images (e.g., images/sweta_1.jpg) -->
+                <img src="images/image_1.png" alt="Sweta 1" class="slide-img">
+                <img src="images/image_2.png" alt="Sweta 2" class="slide-img">
+                <img src="images/image_3.png" alt="Sweta 3" class="slide-img">
+            </div>
+        </div>
+
+        <!-- Greeting Text -->
+        <div class="special-text">Happy Birthday</div>
+        <h1>✨ SWETA ✨</h1>
+
+        <!-- Short Quotes (3-4 Lines) -->
+        <div class="quotes-container">
+            <p class="quote active">Sweta, wishing you a day filled with laughter and all the things you love most! You are the best!</p>
+            <p class="quote">To my closest confidant: may your special day be just as amazing and lovely as you are!</p>
+            <p class="quote">Another year of adventures with my best friend. May this year be your happiest one yet!</p>
+            <p class="quote">Thank you for being such an incredible friend, Sweta. Have the most fantastic birthday ever! 🎂</p>
+        </div>
+
+        <button class="cta-btn" onclick="alert('Sending endless love and happy vibes to you, Sweta! ❤️🎉')">Send Happy Vibes!</button>
+    </div>
+
+    <!-- Confetti Explosion Script -->
+    <script>
+        // Automatic Balloon Generator
+        function createBalloons() {
+            const container = document.getElementById('balloons');
+            const numBalloons = 20;
+            const colors = ['#ff4081', '#f8bbd0', '#fce4ec', '#fff', '#e91e63'];
+
+            for (let i = 0; i < numBalloons; i++) {
+                const balloon = document.createElement('div');
+                balloon.classList.add('balloon');
+                balloon.style.left = `${Math.random() * 100}vw`;
+                balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.animationDelay = `${Math.random() * 10}s`;
+                container.appendChild(balloon);
+            }
+        }
+
+        // Cycle through quotes
+        function cycleQuotes() {
+            const quotes = document.querySelectorAll('.quote');
+            let currentQuote = 0;
+            quotes[currentQuote].classList.add('active');
+
+            setInterval(() => {
+                quotes[currentQuote].classList.remove('active');
+                currentQuote = (currentQuote + 1) % quotes.length;
+                quotes[currentQuote].classList.add('active');
+            }, 6000); // Change quote every 6 seconds
+        }
+
+        // Initialize animations on load
+        window.onload = function() {
+            createBalloons();
+            cycleQuotes();
+        };
+    </script>
+</body>
+</html>
